@@ -1,8 +1,10 @@
+
 import random
 from PIL import Image, ImageDraw, ImageFont
 import textwrap
 from flask import Flask, send_file
 import io
+import os
 
 # ===== 任務清單 =====
 tasks = [
@@ -102,7 +104,4 @@ def draw_card():
     return send_file(img_io, mimetype="image/png")
 
 if __name__ == "__main__":
-    import os
-
-    port = int(os.environ.get("PORT", 5000))
-    app.run(host="0.0.0.0", port=port)
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
